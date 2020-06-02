@@ -43,6 +43,12 @@ class RecipientController {
     }
   }
 
+  async index(req, res) {
+    const recipients = await Recipient.findAll();
+
+    return res.json(recipients);
+  }
+
   async update(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string(),
